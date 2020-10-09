@@ -132,14 +132,6 @@ md"""
 Seed displayed on the left. Retrieved image on the right
 """
 
-# ╔═╡ 414d5b8e-0a77-11eb-08e3-95585ff4ae9d
-md"""
-Still to do:
-
-- [ ] Increasing obscurity does not shuffle which pixels are obscured
-- [ ] Put into Repo
-"""
-
 # ╔═╡ 9d4ffdc6-0a7a-11eb-3e52-4f7c39e6f8d2
 md"""
 ### What if the memory was never stored?
@@ -169,6 +161,13 @@ md"""
 It looks like the model develops a really incomplete understanding of the pattern even if there are patterns that are very similar
 """
 
+# ╔═╡ 414d5b8e-0a77-11eb-08e3-95585ff4ae9d
+md"""
+### TODO:
+
+- [ ] Increasing obscurity does not shuffle which pixels are obscured
+"""
+
 # ╔═╡ Cell order:
 # ╟─b105d9c2-0a79-11eb-2f6f-4b12f9498f89
 # ╟─c2178776-0a79-11eb-00ad-6dc98d15955e
@@ -185,7 +184,7 @@ It looks like the model develops a really incomplete understanding of the patter
 # ╟─7de67790-0a6f-11eb-2b9f-91ec6a0035e9
 # ╟─82f2fbe0-0a7a-11eb-2faf-5730af229577
 # ╠═ffa9b626-0a6e-11eb-0d32-538c15bc83a4
-# ╟─414d5b8e-0a77-11eb-08e3-95585ff4ae9d
 # ╟─9d4ffdc6-0a7a-11eb-3e52-4f7c39e6f8d2
 # ╟─dea5fafa-0a7a-11eb-2db7-a16b04aa4b65
 # ╟─a74409a2-0a7b-11eb-2b15-b51ae49b13fb
+# ╟─414d5b8e-0a77-11eb-08e3-95585ff4ae9d
