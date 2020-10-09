@@ -20,4 +20,4 @@ This will open a Jupyter-like interface that will allow you to browse to `notebo
 
 Unlike python, Julia has a longer start up time. This is because the code you write is immediately compiled. This also allows the code to run at near C-speeds and enables Pluto to have the interactive speeds you will shortly see.
 
-
+The environment is self contained in the notebook and will take a while to run the first time.
