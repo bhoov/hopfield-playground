@@ -47,10 +47,14 @@ begin
 			"StatsBase",
 			"DelimitedFiles",
 			"JSON2",
-			"Tables"
+			"Tables",
+			"PyCall",
+			"Conda"
             ])
 	
 	using Tables
+	using PyCall
+	using Conda
 	using JSON2
 	using DelimitedFiles
     using Images
@@ -58,6 +62,9 @@ begin
     using PlutoUI
 	using MLDatasets
 end
+
+# ╔═╡ f101d912-0ca3-11eb-3150-85f6d8ca65b2
+Conda.add("transformers", channel="conda-forge")
 
 # ╔═╡ d2635856-0a79-11eb-3cb7-e57a008425b5
 md"""
@@ -289,21 +296,26 @@ The downsides:
 	- This approach requires developing the visualization in a separate repository and then uploading to NPM... I can't figure out how to import JS code files into the notebook
 """
 
-# ╔═╡ bb06d9e8-0c91-11eb-2372-1fa86d091ee1
-HTML("""
-	<div id="gross-div"></div>
-	
-	<script>
-		const d3 = await require("d3")
-	const markup = ` Wow! I can actually load D3 and use it inside pluto! That means I should be able to easily bind any JSONified Julia object to a custom visualization as I need. Nice! `
-		d3.select("#gross-div").text(markup)
-	</script>
-	""")
+# ╔═╡ 77134cd2-0c9e-11eb-0b73-d319cc2072e1
+myJuliaStr = "HELLO BY GORGEOUS"
+
+# ╔═╡ e2773c18-0c99-11eb-209a-23ef64d91c4c
+	HTML("""
+		<div id="gross-div"></div>
+
+		<script type="module">
+			const app = await require("https://localhost:1234/sample.js")
+			app()
+		</script>
+		""")
 
 # ╔═╡ 578d332a-0c92-11eb-21b7-d12f9bd60c18
 HTML("""
-	
 	<div id="mycloud"></div>
+	<div id="bogus"></div>
+	<script>
+	document.querySelector("#bogus").textContent = "Hello me"
+	</script>
 	
 	<script>
 	const d3 = await require("d3")
@@ -344,11 +356,23 @@ HTML("""
 	</script>
 	""")
 
+# ╔═╡ 9f0b595e-0c9d-11eb-3a9a-29ed5eed90ec
+md"""
+## Serving a local javascript file
+"""
+
+# ╔═╡ a5e25e34-0c9d-11eb-3f38-21d73fed70cb
+HTML("""
+	<h1>TEST</h1>
+	<div id="fake"></div>	
+	""")
+
 # ╔═╡ Cell order:
 # ╟─b105d9c2-0a79-11eb-2f6f-4b12f9498f89
 # ╟─c2178776-0a79-11eb-00ad-6dc98d15955e
 # ╠═70d5be76-0a5d-11eb-2626-6799926deaeb
 # ╠═79ed37bc-0a5d-11eb-2033-21326bb765ae
+# ╠═f101d912-0ca3-11eb-3150-85f6d8ca65b2
 # ╟─d2635856-0a79-11eb-3cb7-e57a008425b5
 # ╠═df4e3e08-0a5d-11eb-331c-59c2cd60bb4a
 # ╠═f08135ee-0a77-11eb-2caa-ab85b93ddb38
@@ -372,5 +396,8 @@ HTML("""
 # ╟─7a53290e-0c8e-11eb-08dd-8bda658ea915
 # ╠═7f863ffe-0c8e-11eb-3e7a-59f8a4cceda2
 # ╠═602d3c2e-0c94-11eb-0b38-7f45df489062
-# ╠═bb06d9e8-0c91-11eb-2372-1fa86d091ee1
+# ╠═77134cd2-0c9e-11eb-0b73-d319cc2072e1
+# ╠═e2773c18-0c99-11eb-209a-23ef64d91c4c
 # ╠═578d332a-0c92-11eb-21b7-d12f9bd60c18
+# ╠═9f0b595e-0c9d-11eb-3a9a-29ed5eed90ec
+# ╠═a5e25e34-0c9d-11eb-3f38-21d73fed70cb

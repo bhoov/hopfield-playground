@@ -1,1 +1,6 @@
-document.querySelector("#bogus").textContent = "Hello me"
+function app() {
+    console.log("I've been run!!")
+    document.querySelector("#gross-div").text = "Innnnnnerrrr"
+}
+
+export default app
