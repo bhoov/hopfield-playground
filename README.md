@@ -21,3 +21,18 @@ This will open a Jupyter-like interface that will allow you to browse to `notebo
 Unlike python, Julia has a longer start up time. This is because the code you write is immediately compiled. This also allows the code to run at near C-speeds and enables Pluto to have the interactive speeds you will shortly see.
 
 The environment is self contained in the notebook and will take a while to run the first time.
+
+## Troubleshooting
+
+#### Hangs on Startup
+If this is the first time you are running the notebook, it is possible that Julia is trying to download MNIST and is asking you for a prompt on the command line. Unfortunately, Pluto has an issue interpreting the STDIN in the workers. 
+
+To fix this, exit Pluto, and run the following within Julia:
+
+``` julia
+import Pkg; Pkg.add("MLDatasets");
+using MLDatasets
+MNIST.traindata()
+```
+
+Start pluto again
